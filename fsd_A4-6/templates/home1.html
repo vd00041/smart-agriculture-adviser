@@ -1,0 +1,218 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+   
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+<div id="navbar"></div>
+
+
+<script type="module" src="../static/js/auth.js"></script><script>
+fetch("base1.html")
+  .then(res => res.text())
+  .then(html => {
+    document.getElementById("navbar").innerHTML = html;
+
+    // ✅ KEEP reveal animation logic
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("active");
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15 });
+
+    document.querySelectorAll(".reveal").forEach(el =>
+      observer.observe(el)
+    );
+  });
+</script>
+
+
+
+<!-- ================= WELCOME CAROUSEL CARD ================= -->
+<div class="card shadow carousel-card position-relative border-0 reveal">
+
+  <!-- DARK OVERLAY -->
+  <div class="darker"></div>
+
+  <div id="welcomeCarousel"
+       class="carousel slide h-100"
+       data-bs-ride="carousel"
+       data-bs-interval="2000">
+
+    <div class="carousel-inner h-100">
+
+      <div class="carousel-item active h-100">
+        <img src="../images/image.jpg"
+
+             class="d-block w-100 hero-img">
+      </div>
+
+      <div class="carousel-item h-100">
+        <img src="../images/img-2.webp"
+
+             class="d-block w-100 hero-img">
+      </div>
+
+      <div class="carousel-item h-100">
+       <img src="../images/img-3.webp"
+
+             class="d-block w-100 hero-img">
+      </div>
+
+    </div>
+  </div>
+
+  <!-- CENTER TEXT -->
+  <div class="carousel-caption custom-caption position-absolute top-50 start-50 translate-middle text-center">
+    <h1 class="fw-bold display-2">Welcome To AgroSense</h1>
+    <h3 class="mt-4">Smart Agriculture Advisory</h3>
+  </div>
+
+</div>
+
+<!-- ========================================================= -->
+
+<!-- ================= FEATURES ================= -->
+<section id="About" class="py-5">
+  
+    <h2 class="text-center fw-bold text-success mb-5">
+      AgroSense Features
+    </h2>
+    <div class="container">
+    <div class="row">
+      <div class="col-md-4">
+        <div class="card shadow h-100 text-center feature-card reveal">
+          <div class="card-body">
+            <h4>Crop Suggestions</h4>
+            <p>Get crop suggestion based on your conditions</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="card shadow h-100 text-center feature-card reveal">
+          <div class="card-body">
+            <h4>Crop Info</h4>
+            <p>Get all information of any crop including required water level, ph, weather, soil type, fertiliser, duration etc.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="card shadow h-100 text-center feature-card reveal">
+          <div class="card-body">
+            <h4>Market</h4>
+            <p>Check live market value of any crop</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+    <div class="container mt-4">
+    <div class="row">
+      <div class="col-md-4">
+        <div class="card shadow h-100 text-center feature-card reveal">
+          <div class="card-body">
+            <h4>Dashboard</h4>
+            <p>See your information , live analysis and your history</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="card shadow h-100 text-center feature-card reveal">
+          <div class="card-body">
+            <h4>Weather</h4>
+            <p>Get latest weather insight of any location</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="card shadow h-100 text-center feature-card reveal">
+          <div class="card-body">
+            <h4>Feedback</h4>
+            <p>Give us your valuable feedback to improve our service</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= QUICK ACTIONS ================= -->
+<section class="quick text-white py-5 reveal">
+  <div class="container text-center">
+    <h2 class="fw-bold">Quick Actions</h2>
+
+    <div class="d-flex justify-content-center gap-3 mt-4 flex-wrap">
+      <a href="dashboard.html" class="btn btn-outline-light btn-lg action-btn">Analysis</a>
+      <a href="map.html" class="btn btn-outline-light btn-lg action-btn">Map</a>
+      <a href="crops.html" class="btn btn-outline-light btn-lg action-btn">Crop</a>
+      
+    </div>
+  </div>
+</section>
+
+
+<footer id="Contact" class="bg-dark text-white pt-5 pb-3">
+    <div class="container">
+        <div class="row">
+
+            <!-- Brand / About -->
+            <div class="col-md-4 mb-4">
+                <h5 class="fw-bold">AgroSense</h5>
+                <p class="small text-light">
+                    Smart agriculture solutions for a better tomorrow. 
+                    Empowering farmers with technology-driven insights.
+                </p>
+            </div>
+
+            <!-- Quick Links -->
+            <div class="col-md-4 mb-4">
+                <h5 class="fw-bold">Quick Links</h5>
+                <ul class="list-unstyled">
+                    <li><a href="#" class="text-decoration-none text-light">Home</a></li>
+                    <li><a href="#About" class="text-decoration-none text-light">About</a></li>
+                    <li><a href="#Contact" class="text-decoration-none text-light">Contact</a></li>
+                </ul>
+            </div>
+
+            <!-- Contact -->
+            <div class="col-md-4 mb-4">
+                <h5 class="fw-bold">Contact</h5>
+                <p class="small mb-1"><i class="bi bi-envelope-fill me-2"></i>support@agrosense.com</p>
+                <p class="small mb-1"><i class="bi bi-telephone-fill me-2"></i>+91 98765 43210</p>
+                <p class="small"><i class="bi bi-geo-alt-fill me-2"></i>India</p>
+            </div>
+
+        </div>
+
+        <hr class="border-light">
+
+        <!-- Bottom -->
+        <div class="text-center small">
+            © 2026 AgroSense | Designed by A-4 (6) Group
+        </div>
+    </div>
+</footer>
+
+<!-- Bootstrap JS -->
+
+<!-- Bootstrap JS (REQUIRED for carousel) -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script type="module" src="../static/js/auth.js"></script>
+
+</body>
+</html>
